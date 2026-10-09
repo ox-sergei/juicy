@@ -1,0 +1,12 @@
+name: OX Security Scan
+on: [push, pull_request]
+
+jobs:
+  ox_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run OX Scan
+        uses: oxsecurity/ox-security-scan@v1
+        env:
+          OX_API_KEY: ${{ secrets.OX_API_KEY }}
